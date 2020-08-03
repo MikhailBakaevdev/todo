@@ -4,7 +4,7 @@ import activeNote from './activeNote';
 
 const rootReducer = combineReducers({
     notes,
-    activeNote
+    activeNote,
 })
 
 

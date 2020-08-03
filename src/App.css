@@ -13,6 +13,15 @@ html, body  {
   width: 100%;
   display: flex;
 }
+.main-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+
+}
+.blur {
+  filter: blur(10px);
+}
 .popUpOverlay {
   width: 100%;
   height: 100%;
@@ -124,4 +133,9 @@ html, body  {
 
 .App-right__note__text {
   height: 100%;
+}
+
+.popUpAddNote__save {
+  padding: 8px;
+  margin-top: 8px;
 }

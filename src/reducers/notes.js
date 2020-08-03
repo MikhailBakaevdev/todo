@@ -21,5 +21,19 @@ const initialState = [
 ]
 
 export default function notes( state = initialState, action ) {
-    return state
+    switch (action.type){
+        case 'createNote': 
+            const note = {
+                header: action.payload.header,
+                dateCreated: new Date(),
+                content: action.payload.content,
+                id: uuidv4()
+            }
+            return [...state, note]
+        case 'deleteNote':
+            return state.filter( note => {
+                return note.id !== action.noteId
+            })
+    }
+    return state 
 }
