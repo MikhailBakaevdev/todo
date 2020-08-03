@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body  {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.App {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.popUpOverlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popUpAddNote {
+  height:  90%;
+  width: 90%;
+  padding: 16px;
+  background-color: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.popUpAddNote > input {
+  border: 0;
+  border-bottom: 1px solid black;
+  width: calc(100% - 24px);
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.popUpAddNote > input:focus {
+  border: 0;
+  border-bottom: 1px solid rgb(125, 44, 255);
+  outline: none;
+}
+.popUpAddNote__close {
+ position: absolute;
+ width: 24px;
+ height: 24px;
+ right: 8px;
+ top: 16px;
+}
+.popUpAddNote__content {
+  height: 100%;
+  font-size: 16px;
+  outline: none;
+}
+.App-left {
+    width: 350px;
+    height: 100%;
+    border-right: 1px solid #AAA;
+    display: flex;
+    flex-direction: column;
+}
+.App-left__search {
+  padding: 8px;
+  border-bottom: 1px solid #EEE;
+}
+.App-left__search > input {
+  width: 100%;
+  padding-left: 16px;
+}
+.App-left__listContainer {
+  height: 100%;
+}
+.App-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  overflow: auto;
+
+}
+.App-list-item {
+  border-bottom: 1px solid #EEE;
+  padding: 0 16px;
+  overflow: auto;
+}
+.App-list-item:hover {
+  background-color: #f3f3f3;
+}
+.App-list-item > p {
+  margin: 8px 0;
+}
+.App-list-item__header {
+  font-weight: bold;
+}
+.App-list-item__date {
+  font-size: 11px;
+  color: #AAA;
+}
+.App-list-item_active {
+  background-color: rgb(252, 252, 90);
+}
+
+.App-right {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+
+}
+.App-right__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+.App-right__note {
+  height: 100%;
+}
+
+.App-right__note__text {
+  height: 100%;
+}
