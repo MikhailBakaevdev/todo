@@ -34,6 +34,30 @@ export default function notes( state = initialState, action ) {
             return state.filter( note => {
                 return note.id !== action.noteId
             })
+        case 'editNote' : 
+            console.log(action)
+            return state.map( note => {
+                if( note.id !== action.payload.id ) {
+                    return note
+                } else {
+                    return {
+                        header: action.payload.header,
+                        dateCreated: note.dateCreated,
+                        content: action.payload.content,
+                        id: note.id
+                    }
+                }
+            })
+        case 'searchNote': 
+            if(!action.value){
+                return state
+            } else {
+                return state.filter( note => {
+                    return  note.header.includes(action.value)
+                }) 
+            }
+
+        default : 
+            return state
     }
-    return state 
 }

@@ -33,7 +33,11 @@ function App() {
       <div className={"main-container" + (createMode ? " blur" : "") }>
         <div className="App-left">
           <div className="App-left__search">
-            <input type="text" placeholder="Search"/>
+            <input type="text" placeholder="Search" onChange={(e) =>
+             dispatch({
+                type: 'searchNote', value: e.target.value
+              })
+            }/>
           </div>
           <div className="App-left__listContainer">
             <ul className="App-list">
@@ -65,7 +69,10 @@ function App() {
             </button>
           </div>
           <div className="App-right__note">
-            <div className="App-right__note__text" contentEditable="true">
+            <div className="App-right__note__text" contentEditable="true" 
+            onInput={(e) => { 
+              activeNote && dispatch({ type: 'editNote', payload: {header:activeNote.header, content: e.target.innerHTML, id: activeNote.id } })
+              }}>
               {activeNote && activeNote.content}
             </div>
           </div>
@@ -76,11 +83,18 @@ function App() {
           <input type="text" className="popUpAddNote__header" placeholder="Title" ref={headerRef}/>
           <button className="popUpAddNote__close" onClick={ () => {setCreateMode(false)} }>X</button>
           <textarea className="popUpAddNote__content" placeholder="Type your note there..." ref={contentRef}></textarea>
-          <button className="popUpAddNote__save" onClick={() => {handleSave();setCreateMode(false)}}>Save</button>
+          <button className="popUpAddNote__save" onClick={() => {
+            handleSave();
+            setCreateMode(false);
+            headerRef.current.value = '';
+            contentRef.current.value = '';
+          }}>
+            Save
+          </button>
         </div>
       </div>
     </div>
   );
 }
-// create search , create local storage, create editable with saves, clear forms
+// create search , create local storage
 export default App;
