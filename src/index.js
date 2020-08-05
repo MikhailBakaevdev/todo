@@ -7,7 +7,22 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer,{
+  notes: JSON.parse(localStorage.getItem('notes')) || [],
+  activeNotes: null
+})
+let lastNotes = store.notes
+
+store.subscribe(() => {
+  const state = store.getState()
+  if( lastNotes === state.notes ) {
+    return 
+  } 
+  lastNotes = state.notes
+  localStorage.setItem('notes', JSON.stringify(state.notes))
+})
+
+
 
 
 

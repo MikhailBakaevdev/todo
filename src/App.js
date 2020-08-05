@@ -8,16 +8,22 @@ function App() {
 
   const dispatch = useDispatch()
 
-  const notes = useSelector(state => state.notes)
+  const [searchValue,setSearchValue] = useState('')
+  const notes = useSelector(state => {
+    return state.notes.filter( note => {
+      return note.header.includes(searchValue)
+    }) 
+  })
   const activeNote = useSelector(state => state.activeNote)
   const dateCreated = activeNote ? moment(activeNote.dateCreated).format("MMM Do YY") : null ;
   const [createMode,setCreateMode] = useState(false)
 
   const headerRef = useRef(null)
   const contentRef = useRef(null)
+  
 
   function handleSave () {
-    if(!headerRef.current || !contentRef.current) {
+    if(!headerRef.current?.value || !contentRef.current?.value ) {
       return
     }
 
@@ -33,11 +39,9 @@ function App() {
       <div className={"main-container" + (createMode ? " blur" : "") }>
         <div className="App-left">
           <div className="App-left__search">
-            <input type="text" placeholder="Search" onChange={(e) =>
-             dispatch({
-                type: 'searchNote', value: e.target.value
-              })
-            }/>
+            <input type="text" placeholder="Search" onChange={(e) => {
+              setSearchValue(e.target.value)
+              }}/>
           </div>
           <div className="App-left__listContainer">
             <ul className="App-list">
@@ -96,5 +100,4 @@ function App() {
     </div>
   );
 }
-// create search , create local storage
 export default App;
