@@ -23,7 +23,6 @@ export default function notes( state = initialState, action ) {
                 return note.id !== action.noteId
             })
         case 'editNote' : 
-            console.log(action)
             return state.map( note => {
                 if( note.id !== action.payload.id ) {
                     return note

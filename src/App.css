@@ -60,6 +60,7 @@ html, body  {
  height: 24px;
  right: 8px;
  top: 16px;
+ text-align: center;
 }
 .popUpAddNote__content {
   height: 100%;
@@ -126,6 +127,12 @@ html, body  {
   display: flex;
   justify-content: space-between;
   margin-bottom: 32px;
+}
+.App-add {
+  text-align: center;
+}
+.App-delete {
+  text-align: center;
 }
 .App-right__note {
   height: 100%;
