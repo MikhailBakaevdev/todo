@@ -80,7 +80,7 @@ html, body  {
 }
 .App-left__search > input {
   width: 100%;
-  padding-left: 16px;
+  padding-left: 8px;
 }
 .App-left__listContainer {
   height: 100%;
