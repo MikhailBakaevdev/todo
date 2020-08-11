@@ -146,3 +146,18 @@ html, body  {
   padding: 8px;
   margin-top: 8px;
 }
+.App-left__search-ico {
+  width: 10px;
+  height: 10px;
+}
+
+
+@media (max-width: 500px) {
+  .popUpAddNote__close {
+    width: 32px;
+    height: 32px;
+  }
+  .popUpAddNote__save  {
+    height: 15%;
+  }
+}
