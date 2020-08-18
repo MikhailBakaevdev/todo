@@ -11,3 +11,5 @@ This app - notes list looks like notes on IOS
 GET STARTED
 
 NPM I
+
+After - NPM START
