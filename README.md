@@ -1,4 +1,4 @@
-This web app was created by me and my mentor/
+
 
 work and new features in progress
 
